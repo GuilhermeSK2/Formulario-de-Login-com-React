@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './App.css'
+import user_icon from '../src/Assets/person.png'
+import email_icon from '../src/Assets/email.png'
+import password_icon from '../src/Assets/password.png'
 
-function App() {
+const LoginSignup = () => {
+
+  const [action,setAction] = useState("Entrar");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <div className='header'>
+        <div className='text'>{action}</div>
+        <div className='underline'></div>
+      </div>
+      <div className='inputs'>
+        {action==='Entrar'?<div></div>:<div className='input'>
+          <img src={user_icon} alt=''/>
+          <input type='text' placeholder='Nome'/>
+        </div>}
+        <div className='input'>
+          <img src={email_icon} alt=''/>
+          <input type='email' placeholder='E-mail'/>
+        </div>
+        <div className='input'>
+          <img src={password_icon} alt=''/>
+          <input type='password' placeholder='Senha'/>
+        </div>
+      </div>
+      {action==="Cadastrar-se"?<div></div>:<div className='forgot-password'>Esqueceu a senha? <span>Clique aqui!</span></div>}
+      <div className='submit-container'>
+        <div className={action=="Entrar"?"submit gray":"submit"} onClick={()=>{setAction("Cadastrar-se")}}>Cadastrar-se</div>
+        <div className={action=="Cadastrar-se"?"submit gray":"submit"} onClick={()=>{setAction("Entrar")}}>Entrar</div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default LoginSignup;
