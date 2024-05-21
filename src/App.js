@@ -30,8 +30,8 @@ const LoginSignup = () => {
       </div>
       {action==="Cadastrar-se"?<div></div>:<div className='forgot-password'>Esqueceu a senha? <span>Clique aqui!</span></div>}
       <div className='submit-container'>
-        <div className={action=="Entrar"?"submit gray":"submit"} onClick={()=>{setAction("Cadastrar-se")}}>Cadastrar-se</div>
-        <div className={action=="Cadastrar-se"?"submit gray":"submit"} onClick={()=>{setAction("Entrar")}}>Entrar</div>
+        <div className={action==="Entrar"?"submit gray":"submit"} onClick={()=>{setAction("Cadastrar-se")}}>Cadastrar-se</div>
+        <div className={action==="Cadastrar-se"?"submit gray":"submit"} onClick={()=>{setAction("Entrar")}}>Entrar</div>
       </div>
     </div>
   )
